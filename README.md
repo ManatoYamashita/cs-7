@@ -1,5 +1,8 @@
 # Computer Simulations 7 - TCU Informatics
 
+![cs-7](https://github.com/user-attachments/assets/d15c6c4b-de2d-47c1-9ea3-b3ee689a38d1)
+
+
 このプロジェクトは東京都市大学 メディア情報学部 情報システム学科のコンピュータシミュレーションの第7回の課題です。
 
 提出用レポートは[こちら](/cs-7.md)からご覧いただけます。
