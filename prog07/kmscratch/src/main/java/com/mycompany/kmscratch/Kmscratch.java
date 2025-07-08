@@ -102,7 +102,7 @@ public class Kmscratch {
         private void initializeCentroids(List<double[]> data) {
             Random rand = new Random();
             for (int i = 0; i < numClusters; i++) {
-                int index = rand.nextInt(_______);  // 入力されたデータのサイズ分乱数を生成
+                int index = rand.nextInt(data.size());  // 入力されたデータのサイズ分乱数を生成
                 centroids.add(data.get(index));
             }
         }
@@ -113,10 +113,11 @@ public class Kmscratch {
             int cluster = 0;
             for (int i = 0; i < centroids.size(); i++) {
                 double distance = euclideanDistance(instance, centroids.get(i));
-                /*
-                    ここに，ユークリッド距離最小となるセントロイドの計算と
-                    そのセントロイドのクラスタ番号を格納するめの処理を追加
-                */
+                // ユークリッド距離最小となるセントロイドの計算とクラスタ番号の格納
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    cluster = i;
+                }
             }
             return cluster;
         }
@@ -146,7 +147,11 @@ public class Kmscratch {
 
         private double euclideanDistance(double[] a, double[] b) {
             double sum = 0;
-            // a, bのユークリッド距離を測定するための処理を作成しよう
+            // a, bのユークリッド距離を測定するための処理
+            for (int i = 0; i < a.length; i++) {
+                sum += Math.pow(a[i] - b[i], 2);
+            }
+            return Math.sqrt(sum);
         }
     }
 }
